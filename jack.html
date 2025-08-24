@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>si Jack - Hypothermia Prevention</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* == BAGIAN CSS UNTUK GAYA TAMPILAN == */
+
+        /* Gaya Global */
+        :root {
+            --primary-color: #0d1b2a;
+            --secondary-color: #1b263b;
+            --text-color: #e0e1dd;
+            --accent-color: #415a77;
+            --highlight-color: #00aaff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header dan Navigasi */
+        header {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-text small {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            border-bottom-color: var(--highlight-color);
+        }
+
+        /* Bagian Home (Hero Section) */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+            background-color: var(--primary-color);
+            background-image: url('https://www.transparenttextures.com/patterns/wave-grid.png'); /* Contoh background pattern */
+            color: white;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        #home h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .cta-button {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background-color: #f0f0f0;
+        }
+
+        /* Bagian Services (Fitur) */
+        #services {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+
+        .section-title {
+             text-align: center;
+             font-size: 2.5rem;
+             margin-bottom: 50px;
+             color: var(--primary-color);
+        }
+
+        .features-intro {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+
+        .features-intro-title {
+            flex: 1;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .features-intro-list {
+            flex: 1;
+        }
+        
+        .features-intro-list ul {
+            list-style: none;
+        }
+
+        .features-intro-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Grid Fitur Detail */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            border-top: 2px dotted var(--accent-color);
+            padding-top: 60px;
+        }
+        
+        .feature-card {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .feature-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .feature-card-content h3 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        
+        .feature-card-content p {
+            color: #555;
+        }
+        
+        /* Bagian Contact */
+        #contact {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        
+        #contact p {
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Responsiveness for smaller screens */
+        @media(max-width: 768px) {
+            #home h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Sembunyikan menu di mobile, bisa dikembangkan dengan menu burger */
+            .features-intro { flex-direction: column; text-align: center; }
+            .features-grid { grid-template-columns: 1fr; }
+            .feature-card { flex-direction: column; text-align: center; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="#home" class="logo">
+                <img src="https://i.ibb.co/C0d2sC3/smartheat-logo.png" alt="SmartHeat Logo">
+                <div class="logo-text">
+                    <span>SI JACK</span>
+                    <small>ANJAYYY</small>
+                </div>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Smart Hypothermia Prevention Jacket</h1>
+            <p>Discover our cutting-edge smart jacket designed to prevent hypothermia. Equipped with real-time temperature detection, automatic warming, IoT emergency notification, and a manual assistance button.</p>
+            <a href="#services" class="cta-button">Learn More</a>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <div class="features-intro">
+                    <h2 class="features-intro-title">Smart Hypothermia Prevention Jacket</h2>
+                    <div class="features-intro-list">
+                        <ul>
+                            <li>Detects decreases in body temperature and ambient temperature in real time.</li>
+                            <li>Activates an automatic heating system when the temperature drops below a safe limit.</li>
+                            <li>Provides emergency alerts via IoT (e.g., to the phones of family, friends, or medical personnel) if the body temperature is critical.</li>
+                            <li>Provides an emergency button for manual assistance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="https://i.ibb.co/3kXpYv0/temp-detect.png" alt="Real-Time Temperature Detection">
+                        <div class="feature-card-content">
+                            <h3>Real-Time Temperature Detection</h3>
+                            <p>Stay informed with real-time temperature detection on your jacket.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                         <img src="https://i.ibb.co/zXp4gB1/auto-warm.png" alt="Automatic Warming">
+                        <div class="feature-card-content">
+                            <h3>Automatic Warming</h3>
+                            <p>Keep yourself warm with automatic warming feature on your jacket.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                         <img src="https://i.ibb.co/M5YxX3m/iot-notif.png" alt="IoT Emergency Notifications">
+                        <div class="feature-card-content">
+                            <h3>IoT Emergency Notifications</h3>
+                            <p>Get notified in emergencies with our IoT emergency notifications feature.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                         <img src="https://i.ibb.co/M5YxX3m/iot-notif.png" alt="Manual Assistance Button"> <div class="feature-card-content">
+                            <h3>Manual Assistance Button</h3>
+                            <p>Get help when you need it with the manual assistance button on your jacket.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p>Have questions? Reach out to us for more information about the SmartHeat Jacket.</p>
+                <p>Email: contact@smartheat.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SmartHeat Jacket. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Script untuk menandai link navigasi yang aktif saat di-scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('nav .nav-links li a');
+
+        window.addEventListener('scroll', ()=> {
+            let current = '';
+            sections.forEach( section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - sectionHeight / 3)){
+                    current = section.getAttribute('id');
+                }
+            })
+
+            navLi.forEach( a => {
+                a.classList.remove('active');
+                if(a.getAttribute('href').substring(1) === current){
+                    a.classList.add('active');
+                }
+            })
+        });
+    </script>
+</body>
+</html>
